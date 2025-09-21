@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Online Voting System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- LOGIN SECTION -->
+<div id="loginSection">
+  <header>
+    <h1>Online Voting System</h1>
+  </header>
+
+  <marquee class="welcome-bar">Welcome to the Secure Voting Portal – Your Vote, Your Voice!</marquee>
+
+  <div class="form-container card">
+    <h2 class="section-heading">Login</h2>
+    <form id="loginForm">
+      <label for="loginAadhaar">Adhar Number*</label>
+      <input type="text" id="loginAadhaar" inputmode="numeric" autocomplete="off" required>
+
+      <label for="loginPassword">Password*</label>
+      <input type="password" id="loginPassword" required>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p class="note">Don’t have an account? <a href="#" onclick="showRegistration()">Sign up</a></p>
+    </form>
+  </div>
+</div>
+
+<!-- DASHBOARD SECTION -->
+<div id="dashboardSection" style="display:none;">
+  <header class="dashboard-header">
+    <div class="dashboard-title">Welcome to Online Voting System, <span id="welcomeName"></span></div>
+    <nav>
+            <!--<a href="#" onclick="showAbout()">Home</a>-->
+
+              <a href="index.html" class="corner-title">Home</a>
+
+
+      <a href="#" onclick="showAbout()">About</a>
+      <!--<a href="#" onclick="scrollToContact()">Contact</a>-->
+
+            <a href="contact.html" class="Contact-link">Contact</a>
+
+        <a href="team.html" class="team-link">Team</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </nav>
+  </header>
+
+  <marquee class="banner-text">Cast Your Vote – Secure, Transparent, and Accessible for All</marquee>
+
+  
+
+
+    <!-- About Section -->
+  <section id="aboutSection" class="info-box card">
+
+    <!-- Image above About -->
+    <div class="about-image">
+      <img src="assets/vote .webp" alt="Voting Banner" class="about-photo">
+    </div>
+
+    <h2 class="section-heading">About the Voting System</h2>
+    <p>
+      Our Online Voting System is a secure and transparent platform designed to
+      make the election process easier, faster, and more reliable. It empowers 
+      citizens to cast their votes digitally without the need to visit polling 
+      stations physically. By integrating Aadhaar-based authentication, the 
+      platform ensures every voter’s identity is verified, eliminating duplication 
+      and fraud. 
+    </p>
+    <p>
+      The system automatically counts votes in real-time, providing instant and 
+      accurate results with zero human interference. With accessibility from 
+      anywhere in the country through an internet connection, this platform 
+      strengthens democratic participation and encourages more citizens to vote.
+    </p>
+
+    <h3 class="subheading">Key Features</h3>
+    <ul>
+      <li>Secure Aadhaar-based authentication for voters</li>
+      <li>Instant vote counting with zero human interference</li>
+      <li>Accessible anytime, anywhere with internet connectivity</li>
+      <li>One voter – one vote policy with strict validation</li>
+      <li>End-to-end encryption for voter privacy and data security</li>
+    </ul>
+
+    <h3 class="subheading">Benefits</h3>
+    <ul>
+      <li>Encourages higher voter turnout by making voting more convenient</li>
+      <li>Reduces costs of physical polling booths, ballot papers, and staff</li>
+      <li>Minimizes chances of tampering, manipulation, and human errors</li>
+      <li>Instant declaration of results ensures transparency and trust</li>
+      <li>Eco-friendly solution by reducing paper usage</li>
+      <li>Promotes inclusivity by allowing remote and differently-abled voters to participate</li>
+    </ul>
+  </section>
+
+
+  <!-- Voter Details -->
+  <div class="voter-box card">
+    <h3 class="subheading">Voter Details</h3>
+    <div class="voter-flex">
+      <img id="voterPhoto" src="assets/pho.jpg" alt="Voter Photo" class="small-photo">
+      <div class="voter-fields">
+        <p><strong>Name:</strong> <span id="voterName">Not Logged In</span></p>
+        <p><strong>Mobile:</strong> <span id="voterMobile">N/A</span></p>
+        <p><strong>Aadhaar:</strong> <span id="voterCNIC">N/A</span></p>
+        <p><strong>Status:</strong> <span id="voterStatus" class="status-not">Not Voted</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Candidate Details -->
+  <h2 class="section-heading">Candidate Details</h2>
+  <div class="candidate-box">
+
+    <!-- BJP -->
+    <div class="candidate card">
+      <img src="assets/bjp.jpg" alt="Narendra Modi" class="candidate-photo">
+      <div class="candidate-body">
+        <div class="candidate-top">
+          <div>
+            <div class="cand-name">Narendra Modi</div>
+            <div class="cand-party">BJP</div>
+          </div>
+          <img src="assets/bjplog.jpg" alt="BJP Symbol" class="symbol">
+        </div>
+
+        <div class="bio-text short">
+          <p><em>Biography:</em> Born 17 Sep 1950, Vadnagar (Gujarat). Rose from humble beginnings to become India’s 14th Prime Minister.</p>
+          <p><em>Political Career:</em> Gujarat CM (2001–2014); Prime Minister (2014–present). Focus on infrastructure, economy, diplomacy.</p>
+        </div>
+        <button class="toggle-bio" onclick="toggleBio(this)">View More</button>
+
+        <div class="vote-row">
+          <strong>Total Votes:</strong> <span id="votesBJP">0</span>
+          <button class="vote-btn btn btn-accent" onclick="vote('BJP','Narendra Modi')">Vote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- INC -->
+    <div class="candidate card">
+      <img src="assets/rahul.webp" alt="Rahul Gandhi" class="candidate-photo">
+      <div class="candidate-body">
+        <div class="candidate-top">
+          <div>
+            <div class="cand-name">Rahul Gandhi</div>
+            <div class="cand-party">INC</div>
+          </div>
+          <img src="assets/conlog.jpg" alt="INC Symbol" class="symbol">
+        </div>
+
+        <div class="bio-text short">
+          <p><em>Biography:</em> Born 19 Jun 1970, New Delhi; part of the Nehru–Gandhi family.</p>
+          <p><em>Political Career:</em> MP (Wayanad); former INC President. Focus on social equity, youth, rural welfare.</p>
+        </div>
+        <button class="toggle-bio" onclick="toggleBio(this)">View More</button>
+
+        <div class="vote-row">
+          <strong>Total Votes:</strong> <span id="votesINC">0</span>
+          <button class="vote-btn btn btn-accent" onclick="vote('INC','Rahul Gandhi')">Vote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AAP -->
+    <div class="candidate card">
+      <img src="assets/kejariwal.jpg" alt="Arvind Kejriwal" class="candidate-photo">
+      <div class="candidate-body">
+        <div class="candidate-top">
+          <div>
+            <div class="cand-name">Arvind Kejriwal</div>
+            <div class="cand-party">AAP</div>
+          </div>
+          <img src="assets/aamlog.jpg" alt="AAP Symbol" class="symbol">
+        </div>
+
+        <div class="bio-text short">
+          <p><em>Biography:</em> Born 16 Aug 1968, Haryana; former IRS officer & RTI activist.</p>
+          <p><em>Political Career:</em> AAP founder; Delhi CM (2015–present). Focus on education, health, transparency.</p>
+        </div>
+        <button class="toggle-bio" onclick="toggleBio(this)">View More</button>
+
+        <div class="vote-row">
+          <strong>Total Votes:</strong> <span id="votesAAP">0</span>
+          <button class="vote-btn btn btn-accent" onclick="vote('AAP','Arvind Kejriwal')">Vote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SP -->
+    <div class="candidate card">
+      <img src="assets/sp.jpg" alt="Akhilesh Yadav" class="candidate-photo">
+      <div class="candidate-body">
+        <div class="candidate-top">
+          <div>
+            <div class="cand-name">Akhilesh Yadav</div>
+            <div class="cand-party">SP</div>
+          </div>
+          <img src="assets/splog.jpg" alt="SP Symbol" class="symbol">
+        </div>
+
+        <div class="bio-text short">
+          <p><em>Biography:</em> Born 1 Jul 1973, Saifai; son of SP founder Mulayam Singh Yadav.</p>
+          <p><em>Political Career:</em> Uttar Pradesh CM (2012–2017). Focus on rural infra, jobs, welfare schemes.</p>
+        </div>
+        <button class="toggle-bio" onclick="toggleBio(this)">View More</button>
+
+        <div class="vote-row">
+          <strong>Total Votes:</strong> <span id="votesSP">0</span>
+          <button class="vote-btn btn btn-accent" onclick="vote('SP','Akhilesh Yadav')">Vote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BSP -->
+    <div class="candidate card">
+      <img src="assets/bsp.webp" alt="Mayawati" class="candidate-photo">
+      <div class="candidate-body">
+        <div class="candidate-top">
+          <div>
+            <div class="cand-name">Mayawati</div>
+            <div class="cand-party">BSP</div>
+          </div>
+          <img src="assets/bsplog.jpg" alt="BSP Symbol" class="symbol">
+        </div>
+
+        <div class="bio-text short">
+          <p><em>Biography:</em> Born 15 Jan 1956, Delhi; leading Dalit rights voice.</p>
+          <p><em>Political Career:</em> Former UP CM. Advocates social justice, women’s rights, economic upliftment.</p>
+        </div>
+        <button class="toggle-bio" onclick="toggleBio(this)">View More</button>
+
+        <div class="vote-row">
+          <strong>Total Votes:</strong> <span id="votesBSP">0</span>
+          <button class="vote-btn btn btn-accent" onclick="vote('BSP','Mayawati')">Vote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Current Political Leadership -->
+  <h2 class="section-heading">Current Political Leadership</h2>
+  <div class="leaders-grid">
+
+    <div class="leader card">
+      <img src="assets/pre.jpg" alt="Droupadi Murmu" class="leader-photo">
+      <div class="leader-label">President of India</div>
+      <div class="leader-name">Droupadi Murmu</div>
+      <p class="leader-info">Assumed office in 2022; among India’s most inspiring public figures.</p>
+    </div>
+
+    <div class="leader card">
+      <img src="assets/bjp.jpg" alt="Narendra Modi" class="leader-photo">
+      <div class="leader-label">Prime Minister</div>
+      <div class="leader-name">Narendra Modi</div>
+      <p class="leader-info">Known for governance reforms, infrastructure, and diplomacy.</p>
+    </div>
+
+    <div class="leader card">
+      <img src="assets/rahul.webp" alt="Rahul Gandhi" class="leader-photo">
+      <div class="leader-label">Opposition Leader</div>
+      <div class="leader-name">Rahul Gandhi</div>
+      <p class="leader-info">Focuses on social equity, youth empowerment, rural welfare.</p>
+    </div>
+
+    <div class="leader card">
+      <img src="assets/om.jpg" alt="Om Birla" class="leader-photo">
+      <div class="leader-label">Speaker (Lok Sabha)</div>
+      <div class="leader-name">Om Birla</div>
+      <p class="leader-info">Presides over the Lok Sabha; encourages robust debates.</p>
+    </div>
+
+    <div class="leader card">
+      <img src="assets/Rajnath.jpg" alt="Rajnath Singh" class="leader-photo">
+      <div class="leader-label">Raksha Mantri (Defence)</div>
+      <div class="leader-name">Rajnath Singh</div>
+      <p class="leader-info">Oversees defence readiness and modernization.</p>
+    </div>
+
+    <div class="leader card">
+      <img src="assets/amit.jpg" alt="Amit Shah" class="leader-photo">
+      <div class="leader-label">Home Minister</div>
+      <div class="leader-name">Amit Shah</div>
+      <p class="leader-info">Leads internal security and policy coordination.</p>
+    </div>
+
+    <div class="leader card">
+      <img src="assets/nir.jpg" alt="Nirmala Sitharaman" class="leader-photo">
+      <div class="leader-label">Finance Minister</div>
+      <div class="leader-name">Nirmala Sitharaman</div>
+      <p class="leader-info">Steers fiscal policy and national budgeting.</p>
+    </div>
+
+    <div class="leader card">
+      <img src="assets/sjai.jpg" alt="S. Jaishankar" class="leader-photo">
+      <div class="leader-label">External Affairs Minister</div>
+      <div class="leader-name">S. Jaishankar</div>
+      <p class="leader-info">Career diplomat shaping India’s foreign relations.</p>
+    </div>
+
+  </div>
+
+  <!-- Contact Info Box 
+  <div id="contactBox" class="contact-info card">
+    <h3 class="subheading">Contact Information</h3>
+    <div class="contact-grid">
+      <p><strong>Email:</strong> election@gmail.com</p>
+      <p><strong>Mobile:</strong> 9999-878-6666</p>
+      <p class="span-2"><strong>Address:</strong> Election Commission Office, New Delhi</p>
+    </div>
+  </div>
+</div>-->
+
+<!-- Contact Info Box -->
+<div id="contactBox" class="contact-info card">
+  <h3 class="subheading">📞 Contact Information</h3>
+  <div class="contact-grid">
+    <p>📧 <strong>Email:</strong> election@gmail.com</p>
+    <p>📱 <strong>Mobile:</strong> 9558227981</p>
+    <p class="span-2">📍 <strong>Address:</strong> Election Commission Office, New Delhi</p>
+  </div>
+</div>
+
+
+<!-- Quote & Hindi Images at Bottom -->
+<div style="text-align:center; margin-top:30px;">
+  
+  <img src="assets/hindi.jpg" alt="Hindi" style="max-width:100%; height:auto; border-radius:10px; display:block; margin:auto;">
+</div>
+<!--it is written for foooter in the end-->
+
+<footer>
+  <p>© 2025 Online Voting System | Designed with S.A by Our Team</p>
+</footer>
+<!--end-footer-->
+</div>
+
+
+<!-- REGISTRATION SECTION -->
+<div id="registrationSection" style="display:none;">
+  <header>
+    <h1>Online Voting System</h1>
+  </header>
+
+  <marquee class="welcome-bar">Welcome to the Secure Voting Portal – Sign Up to Make Your Voice Heard!</marquee>
+
+  <div class="form-container card Rectangle-form">
+    <h2 class="section-heading">Registration Details</h2>
+    <form id="registrationForm">
+      <label for="regName">Full Name*</label>
+      <input type="text" id="regName" required>
+
+      <label for="regDOB">Date of Birth*</label>
+      <input type="date" id="regDOB" required>
+
+      <label for="regEmail">Email</label>
+      <input type="email" id="regEmail">
+
+      <label for="regMobile">Mobile Number*</label>
+      <input type="tel" id="regMobile" required>
+
+      <label for="regGender">Gender*</label>
+      <select id="regGender" required>
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <label for="regPhoto">Upload Your Image*</label>
+      <input type="file" id="regPhoto" accept="image/*" required>
+
+      <!--<label for="regAadhaar">Aadhaar Number*</label>
+      <input type="text" id="regAadhaar" inputmode="numeric" autocomplete="off" required>-->
+
+<label for="regAadhaar">Aadhaar Number*</label>
+<input type="text" id="regAadhaar" maxlength="14" placeholder="1234-5678-9876" inputmode="numeric" required>
+
+
+      <label for="regPass">Create Password*</label>
+      <input type="password" id="regPass" required>
+
+      <label for="regConfirmPass">Confirm Password*</label>
+      <input type="password" id="regConfirmPass" required>
+
+      <button type="submit" class="btn btn-primary">Register</button>
+      <p class="note small">By registering, you confirm that details are correct to the best of your knowledge.</p>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
